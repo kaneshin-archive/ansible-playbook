@@ -1,0 +1,12 @@
+---
+- include: debian.yml
+  when: ansible_os_family == 'Debian'
+
+- include: darwin.yml
+  when: ansible_os_family == 'Darwin'
+
+- include: tmuxinator.yml
+  when: tmux_install_tmuxinator
+
+- include: tmuxp.yml
+  when: tmux_install_tmuxp

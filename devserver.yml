@@ -1,0 +1,12 @@
+- hosts: devservers
+  become: yes
+  become_user: root
+  remote_user: kaneshin
+  roles:
+    - { role: git }
+    - { role: fish, fish_users: ['kaneshin'] }
+
+- hosts: devservers
+  remote_user: kaneshin
+  roles:
+    - { role: fish/fisherman }

@@ -1,0 +1,6 @@
+---
+- name: Install tmux
+  homebrew: name=tmux state=present
+
+- name: Configure copy and paste
+  homebrew: name=reattach-to-user-namespace state=present

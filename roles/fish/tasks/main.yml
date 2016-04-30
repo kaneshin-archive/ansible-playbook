@@ -1,0 +1,17 @@
+---
+- include: debian.yml
+  when: ansible_distribution == 'Debian'
+
+- name: Install fish
+  apt:
+    pkg: fish
+    force: yes
+    update_cache: yes
+    state: present
+
+- name: Change shell to fish
+  user:
+    name: "{{ item }}"
+    shell: /usr/bin/fish
+  with_items: "{{ fish_users }}"
+  when: fish_users | length > 0

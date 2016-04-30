@@ -1,0 +1,5 @@
+---
+# defaults file for hnakamur.anyenv
+anyenv_repository_url: https://github.com/riywo/anyenv
+anyenv_dir: ~/.anyenv
+anyenv_profile: ~/anyenv.profile

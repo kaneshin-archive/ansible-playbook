@@ -1,0 +1,13 @@
+---
+- shell: >
+    curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisherman
+    curl -L git.io/confd >> ~/.config/fish/config.fish
+
+- shell: >
+    /usr/bin/fish -c "fisher {{ item }}"
+  with_items:
+    - z
+    - menu
+    - fzf
+    - riywo/anyenv
+    - holman/spark
