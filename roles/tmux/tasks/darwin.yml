@@ -1,5 +1,5 @@
 ---
-- name: Install tmux
+- name: Install tmux for darwin
   homebrew: name=tmux state=present
 
 - name: Configure copy and paste

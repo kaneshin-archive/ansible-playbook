@@ -6,6 +6,7 @@
 
 - name: Install envs
   shell: >
+    source {{ anyenv_profile }};
     {{ anyenv_dir }}/bin/anyenv install {{ item }};
   args:
     creates: "{{ anyenv_dir }}/envs/{{ item }}"
