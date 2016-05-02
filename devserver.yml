@@ -4,6 +4,7 @@
   remote_user: kaneshin
   roles:
     - { role: git }
+    - { role: jq }
     - { role: fish, fish_users: ['kaneshin'] }
 
 - hosts: devservers
