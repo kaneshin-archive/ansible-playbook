@@ -10,8 +10,8 @@
   args:
     creates: "{{ fisherman_confd_once }}"
 
-- shell: >
-    /usr/bin/fish -c "fisher {{ item }}";
+- name: Install fisher plugins
+  shell: /usr/bin/fish -c "fisher {{ item }}"
   with_items:
     - simple
     - z
