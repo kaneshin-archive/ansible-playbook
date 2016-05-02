@@ -1,0 +1,4 @@
+---
+fisherman_fisher_functions: ~/.config/fish/functions/fisher.fish
+fisherman_fish_config: ~/.config/fish/config.fish
+fisherman_confd_once: ~/.config/fish/.confd.once

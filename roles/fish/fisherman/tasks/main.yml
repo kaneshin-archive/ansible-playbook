@@ -1,9 +1,14 @@
 ---
-- shell: >
-    curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisherman;
+- name: Install fisherman
+  shell: curl -Lo {{ fisherman_fisher_functions }} --create-dirs git.io/fisherman;
+  args:
+    creates: "{{ fisherman_fisher_functions }}"
 
-- shell: >
-    curl -L git.io/confd >> ~/.config/fish/config.fish;
+- name: Setup config.fish
+  shell: >
+    curl -L git.io/confd >> {{ fisherman_fish_config }} && touch {{ fisherman_confd_once }}
+  args:
+    creates: "{{ fisherman_confd_once }}"
 
 - shell: >
     /usr/bin/fish -c "fisher {{ item }}";

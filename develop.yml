@@ -1,13 +1,13 @@
-- hosts: devservers
+- hosts: all
   become: yes
   become_user: root
-  remote_user: kaneshin
   roles:
+    - { role: mosh }
     - { role: git }
     - { role: jq }
     - { role: fish, fish_users: ['kaneshin'] }
 
-- hosts: devservers
+- hosts: all
   remote_user: kaneshin
   roles:
     - { role: fish/fisherman }
