@@ -1,0 +1,3 @@
+---
+- name: Install zplug
+  shell: curl -fLo ~/.zplug/zplug --create-dirs git.io/zplug

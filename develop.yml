@@ -1,13 +1,27 @@
+---
 - hosts: all
   become: yes
   become_user: root
   roles:
-    - { role: mosh }
-    - { role: git }
+    - { role: apt }
+    - { role: dev-tools }
     - { role: jq }
-    - { role: fish, fish_users: ['kaneshin'] }
+    - { role: mosh }
+    - { role: fish }
+    - { role: zsh, zsh_users: ['kaneshin'] }
 
 - hosts: all
   remote_user: kaneshin
   roles:
-    - { role: fish/fisherman }
+    - { role: zsh/zplug }
+    - role: anyenv
+      anyenv_envs: ['rbenv', 'pyenv', 'ndenv', 'goenv']
+  # - role: fish/fisherman
+  #   fisherman_plugins:
+  #     - 'z'
+  #     - 'git_util'
+  #     - 'gitignore'
+  #     - 'menu'
+  #     - 'rbenv'
+  #     - 'pyenv'
+  #     - 'oh-my-fish/plugin-direnv'

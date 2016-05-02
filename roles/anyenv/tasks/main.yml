@@ -1,14 +1,13 @@
 ---
-- git: repo="{{ anyenv_repository_url }}" dest="{{ anyenv_dir }}"
+- name: Install anyenv
+  git: repo="{{ anyenv_repository_url }}" dest="{{ anyenv_dir }}"
 
 - template: src=profile.j2 dest={{ anyenv_profile }}
 
-- shell: >
+- name: Install envs
+  shell: >
     {{ anyenv_dir }}/bin/anyenv install {{ item }};
   args:
     creates: "{{ anyenv_dir }}/envs/{{ item }}"
-  with_items:
-    - rbenv
-    - pyenv
-    - ndenv
-    - goenv
+  with_items: "{{ anyenv_envs }}"
+  when: anyenv_envs | length > 0

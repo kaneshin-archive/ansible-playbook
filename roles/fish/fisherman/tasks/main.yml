@@ -6,16 +6,13 @@
 
 - name: Setup config.fish
   shell: >
+    echo 'not status --is-interactive; exit' >> {{ fisherman_fish_config }};
     curl -L git.io/confd >> {{ fisherman_fish_config }} && touch {{ fisherman_confd_once }}
   args:
     creates: "{{ fisherman_confd_once }}"
 
-- name: Install fisher plugins
+- name: Install fisher plugins (failed_when)
   shell: /usr/bin/fish -c "fisher {{ item }}"
-  with_items:
-    - simple
-    - z
-    - menu
-    - fzf
-    - riywo/anyenv
-    - holman/spark
+  failed_when: false
+  with_items: "{{ fisherman_plugins }}"
+  when: fisherman_plugins | length > 0

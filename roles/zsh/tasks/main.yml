@@ -1,3 +1,10 @@
 ---
 - name: Install zsh
   apt: name=zsh state=present
+
+- name: Change shell to zsh
+  user:
+    name: "{{ item }}"
+    shell: /usr/bin/zsh
+  with_items: "{{ zsh_users }}"
+  when: zsh_users | length > 0
