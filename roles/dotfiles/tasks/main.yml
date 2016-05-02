@@ -1,0 +1,7 @@
+---
+- name: Install dotfiles
+  git: repo="{{ dotfiles_repository_url }}" dest="{{ dotfiles_dir }}"
+
+- name: Link dotfiles
+  shell: >
+    {{ dotfiles_dir }}/symlink.sh make --all dotfiles

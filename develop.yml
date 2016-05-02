@@ -14,6 +14,7 @@
 - hosts: all
   remote_user: kaneshin
   roles:
+    - { role: dotfiles }
     - { role: zsh/zplug }
     - role: anyenv
       anyenv_envs: ['rbenv', 'pyenv', 'ndenv', 'goenv']
