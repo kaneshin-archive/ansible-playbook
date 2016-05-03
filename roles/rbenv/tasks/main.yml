@@ -1,0 +1,15 @@
+---
+- name: Install rbenv
+  git: repo="{{ rbenv_repository_url }}" dest="{{ rbenv_dir }}"
+
+- name: Install ruby-build
+  git: repo="{{ rbenv_build_repository_url }}" dest="{{ rbenv_build_dir }}"
+
+- template: src=profile.j2 dest={{ rbenv_profile }}
+
+- name: Install distributions
+  shell: >
+    source {{ rbenv_profile }};
+    {{ rbenv_dir }}/bin/rbenv install {{ item }};
+  with_items: "{{ rbenv_versions }}"
+  when: rbenv_versions | length > 0

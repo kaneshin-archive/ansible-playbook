@@ -1,7 +1,7 @@
 ---
-- name: Install dotfiles
+- name: Clone dotfiles
   git: repo="{{ dotfiles_repository_url }}" dest="{{ dotfiles_dir }}"
 
-- name: Link dotfiles
+- name: Install dotfiles
   shell: >
-    {{ dotfiles_dir }}/symlink.sh make --all dotfiles
+    {{ dotfiles_dir }}/bin/dotfiles install {{ dotfiles_dir }}/bundle

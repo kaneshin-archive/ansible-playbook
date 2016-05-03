@@ -16,8 +16,11 @@
   roles:
     - { role: dotfiles }
     - { role: zsh/zplug }
-    - role: anyenv
-      anyenv_envs: ['rbenv', 'pyenv', 'ndenv', 'goenv']
+    - { role: rbenv, rbenv_versions: ['2.3.0'] }
+    - { role: pyenv, pyenv_versions: ['3.5.0', 2.7.9] }
+    - { role: goenv, goenv_versions: ['1.6.2'] }
+  # - role: anyenv
+  #   anyenv_envs: ['rbenv', 'pyenv', 'ndenv', 'goenv']
   # - role: fish/fisherman
   #   fisherman_plugins:
   #     - 'z'

@@ -1,0 +1,5 @@
+---
+pyenv_repository_url: https://github.com/yyuu/pyenv
+pyenv_dir: ~/.pyenv
+pyenv_profile: ~/.pyenv/.profile
+pyenv_versions: []

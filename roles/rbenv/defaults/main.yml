@@ -1,0 +1,7 @@
+---
+rbenv_repository_url: https://github.com/sstephenson/rbenv
+rbenv_dir: ~/.rbenv
+rbenv_profile: ~/.rbenv/.profile
+rbenv_versions: []
+rbenv_build_repository_url: https://github.com/sstephenson/ruby-build
+rbenv_build_dir: ~/.rbenv/plugins/ruby-build

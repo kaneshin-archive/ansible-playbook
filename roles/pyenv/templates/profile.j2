@@ -1,0 +1,4 @@
+### bash/zsh ###
+export PYENV_ROOT="{{ pyenv_dir | replace('~', '$HOME') }}"
+export PATH="{{ pyenv_dir | replace('~', '$HOME') }}/bin:$PATH"
+eval "$(pyenv init -)"
