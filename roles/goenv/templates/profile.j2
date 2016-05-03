@@ -1,3 +1,6 @@
-### bash/zsh ###
-export PATH="{{ goenv_dir | replace('~', '$HOME') }}/bin:$PATH"
-eval "$(goenv init -)"
+# Setup goenv
+if [ -d "{{ goenv_dir | replace('~', '$HOME') }}" ]; then
+  export GOENV_ROOT="{{ goenv_dir | replace('~', '$HOME') }}"
+  export PATH="$GOENV_ROOT/bin:$PATH"
+  which goenv > /dev/null && eval "$(goenv init -)"
+fi

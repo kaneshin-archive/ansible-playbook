@@ -1,0 +1,4 @@
+---
+peco_repository_url: https://github.com/peco/peco
+peco_dest: /usr/local/bin/peco
+peco_archive: peco_linux_amd64

@@ -1,0 +1,6 @@
+# Setup nodenv
+if [ -d "{{ nodenv_dir | replace('~', '$HOME') }}" ]; then
+  export NODENV_ROOT="{{ nodenv_dir | replace('~', '$HOME') }}"
+  export PATH="$NODENV_ROOT/bin:$PATH"
+  which nodenv > /dev/null && eval "$(nodenv init -)"
+fi

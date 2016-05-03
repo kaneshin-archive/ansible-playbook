@@ -8,17 +8,21 @@
     - { role: jq }
     - { role: mosh }
     - { role: tmux }
+    - { role: direnv }
+    - { role: peco }
   # - { role: fish }
-    - { role: zsh, zsh_users: ['kaneshin'] }
+    - { role: zsh, zsh_users: [] }
 
 - hosts: all
   remote_user: kaneshin
   roles:
     - { role: dotfiles }
-    - { role: zsh/zplug }
+    - { role: z }
     - { role: rbenv, rbenv_versions: ['2.3.0'] }
-    - { role: pyenv, pyenv_versions: ['3.5.0', 2.7.9] }
+    - { role: pyenv, pyenv_versions: ['2.7.9'] }
     - { role: goenv, goenv_versions: ['1.6.2'] }
+    - { role: nodenv, nodenv_versions: [] }
+  # - { role: zsh/zplug }
   # - role: anyenv
   #   anyenv_envs: ['rbenv', 'pyenv', 'ndenv', 'goenv']
   # - role: fish/fisherman

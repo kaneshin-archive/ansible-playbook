@@ -1,5 +1,5 @@
 ---
-goenv_repository_url: https://github.com/wfarr/goenv
+goenv_repository_url: https://github.com/kaneshin/goenv
 goenv_dir: ~/.goenv
 goenv_profile: ~/.goenv/.profile
 goenv_versions: []

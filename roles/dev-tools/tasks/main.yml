@@ -5,6 +5,7 @@
     - autoconf
     - automake
     - bison
+    - bzip2
     - cmake
     - ctags
     - diffstat
@@ -16,9 +17,12 @@
     - git
     - indent
     - intltool
+    - libreadline-dev
+    - libssl-dev
     - libtool
     - make
     - mercurial
     - patch
     - patchutils
     - subversion
+    - zlib1g-dev

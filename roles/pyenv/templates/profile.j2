@@ -1,4 +1,6 @@
-### bash/zsh ###
-export PYENV_ROOT="{{ pyenv_dir | replace('~', '$HOME') }}"
-export PATH="{{ pyenv_dir | replace('~', '$HOME') }}/bin:$PATH"
-eval "$(pyenv init -)"
+# Setup pyenv
+if [ -d "{{ pyenv_dir | replace('~', '$HOME') }}" ]; then
+  export PYENV_ROOT="{{ pyenv_dir | replace('~', '$HOME') }}"
+  export PATH="$PYENV_ROOT/bin:$PATH"
+  which pyenv > /dev/null && eval "$(pyenv init -)"
+fi

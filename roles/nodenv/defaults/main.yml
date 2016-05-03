@@ -1,0 +1,5 @@
+---
+nodenv_repository_url: https://github.com/nodenv/nodenv
+nodenv_dir: ~/.nodenv
+nodenv_profile: ~/.nodenv/.profile
+nodenv_versions: []

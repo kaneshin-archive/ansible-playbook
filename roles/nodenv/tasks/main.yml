@@ -1,0 +1,15 @@
+---
+- name: Clone nodenv
+  git: repo="{{ nodenv_repository_url }}" dest="{{ nodenv_dir }}"
+
+- name: Install nodenv
+  shell: cd {{ nodenv_dir }} && src/configure && make -C src
+
+- template: src=profile.j2 dest={{ nodenv_profile }}
+
+- name: Install distributions
+  shell: >
+    source {{ nodenv_profile }};
+    {{ nodenv_dir }}/bin/nodenv install {{ item }};
+  with_items: "{{ nodenv_versions }}"
+  when: nodenv_versions | length > 0

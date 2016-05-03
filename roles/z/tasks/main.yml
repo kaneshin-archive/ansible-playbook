@@ -1,0 +1,3 @@
+---
+- name: Install z
+  git: repo="{{ z_repository_url }}" dest="{{ z_dir }}"

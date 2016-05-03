@@ -1,3 +1,6 @@
-### bash/zsh ###
-export PATH="{{ rbenv_dir | replace('~', '$HOME') }}/bin:$PATH"
-eval "$(rbenv init -)"
+# Setup rbenv
+if [ -d "{{ rbenv_dir | replace('~', '$HOME') }}" ]; then
+  export RBENV_ROOT="{{ rbenv_dir | replace('~', '$HOME') }}"
+  export PATH="$RBENV_ROOT/bin:$PATH"
+  which rbenv > /dev/null && eval "$(rbenv init -)"
+fi

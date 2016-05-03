@@ -1,0 +1,3 @@
+---
+direnv_repository_url: https://github.com/direnv/direnv
+direnv_dest: /usr/local/bin/direnv
