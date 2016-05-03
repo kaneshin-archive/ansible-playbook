@@ -25,4 +25,5 @@
     - patch
     - patchutils
     - subversion
+    - unzip
     - zlib1g-dev

@@ -1,0 +1,4 @@
+---
+ghq_repository_url: https://github.com/motemen/ghq
+ghq_dest: /usr/local/bin/ghq
+ghq_archive: ghq_linux_amd64

@@ -9,8 +9,9 @@
     - { role: mosh }
     - { role: tmux }
     - { role: direnv }
+    - { role: ghq }
     - { role: peco }
-  # - { role: fish }
+    - { role: fish }
     - { role: zsh, zsh_users: [] }
 
 - hosts: all

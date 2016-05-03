@@ -11,4 +11,4 @@
   command: tar zxvf /tmp/{{ peco_archive }}.tar.gz chdir=/tmp
 
 - name: Copy peco
-  shell: cp /tmp/{{ peco_archive }}/peco {{ peco_dest }} && chmod a+x {{ peco_dest }}
+  shell: mv /tmp/{{ peco_archive }}/peco {{ peco_dest }} && chmod a+x {{ peco_dest }}
