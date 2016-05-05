@@ -5,14 +5,15 @@
   roles:
     - { role: apt }
     - { role: dev-tools }
+    - { role: fish }
+    - { role: zsh, zsh_users: [] }
     - { role: jq }
     - { role: mosh }
     - { role: tmux }
     - { role: direnv }
     - { role: ghq }
     - { role: peco }
-    - { role: fish }
-    - { role: zsh, zsh_users: [] }
+    - { role: appengine/go }
 
 - hosts: all
   remote_user: kaneshin

@@ -1,0 +1,6 @@
+---
+- name: Download appengine for golang
+  get_url: url={{ appengine_go_package_url }}/{{ appengine_go_sdk_name }}_{{ appengine_go_platform }}_{{ appengine_go_arch }}-{{ appengine_go_version }}.zip dest=/tmp/{{ appengine_go_sdk_name }}.zip
+
+- name: Extract appengine for golang
+  command: unzip /tmp/{{ appengine_go_sdk_name }}.zip chdir={{ appengine_go_dest }}

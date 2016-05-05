@@ -1,0 +1,7 @@
+---
+appengine_go_package_url: https://storage.googleapis.com/appengine-sdks/featured
+appengine_go_sdk_name: go_appengine_sdk
+appengine_go_platform: linux
+appengine_go_arch: amd64
+appengine_go_version: 1.9.37
+appengine_go_dest: /usr/local/share/google
