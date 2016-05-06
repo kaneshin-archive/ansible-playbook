@@ -1,0 +1,3 @@
+---
+- name: Clone vundle
+  git: repo="{{ vim_vundle_repository_url }}" dest="{{ vim_vundle_dir }}"
