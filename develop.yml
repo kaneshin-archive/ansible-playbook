@@ -13,6 +13,7 @@
     - { role: direnv }
     - { role: ghq }
     - { role: peco }
+    - { role: glide }
     - { role: appengine/go }
 
 - hosts: all
