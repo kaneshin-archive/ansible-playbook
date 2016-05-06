@@ -17,6 +17,7 @@
     - git
     - indent
     - intltool
+    - libffi-dev
     - libreadline-dev
     - libssl-dev
     - libtool
