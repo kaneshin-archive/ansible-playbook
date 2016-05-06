@@ -5,6 +5,9 @@
 - name: Install nodenv
   shell: cd {{ nodenv_dir }} && src/configure && make -C src
 
+- name: Install node-build
+  git: repo="{{ nodenv_build_repository_url }}" dest="{{ nodenv_build_dir }}"
+
 - template: src=profile.j2 dest={{ nodenv_profile }}
 
 - name: Install distributions
