@@ -19,12 +19,14 @@
     - intltool
     - libffi-dev
     - libreadline-dev
+    - libsqlite3-dev
     - libssl-dev
     - libtool
     - make
     - mercurial
     - patch
     - patchutils
+    - sqlite3
     - subversion
     - tree
     - unzip
