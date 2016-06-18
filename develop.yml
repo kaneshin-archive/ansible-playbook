@@ -22,7 +22,7 @@
     - { role: dotfiles }
     - { role: z }
     - { role: rbenv, rbenv_versions: ['2.3.0'] }
-    - { role: pyenv, pyenv_versions: ['2.7.9', '3.4.2'] }
+    - { role: pyenv, pyenv_versions: ['2.7.11'] }
     - { role: goenv, goenv_versions: ['1.6.2'] }
     - { role: nodenv, nodenv_versions: [] }
   # - { role: zsh/zplug }
