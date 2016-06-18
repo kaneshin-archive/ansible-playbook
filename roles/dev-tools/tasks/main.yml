@@ -17,6 +17,7 @@
     - git
     - indent
     - intltool
+    - libbz2-dev
     - libffi-dev
     - libreadline-dev
     - libsqlite3-dev
