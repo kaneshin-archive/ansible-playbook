@@ -5,7 +5,6 @@
   roles:
     - { role: apt }
     - { role: dev-tools }
-    - { role: fish }
     - { role: zsh, zsh_users: [] }
     - { role: jq }
     - { role: mosh }
@@ -14,7 +13,6 @@
     - { role: ghq }
     - { role: peco }
     - { role: glide }
-    - { role: appengine/go }
 
 - hosts: all
   remote_user: kaneshin
@@ -22,18 +20,6 @@
     - { role: dotfiles }
     - { role: z }
     - { role: rbenv, rbenv_versions: ['2.3.0'] }
-    - { role: pyenv, pyenv_versions: ['2.7.11'] }
+    - { role: pyenv, pyenv_versions: ['2.7.10'] }
     - { role: goenv, goenv_versions: ['1.6.2'] }
     - { role: nodenv, nodenv_versions: [] }
-  # - { role: zsh/zplug }
-  # - role: anyenv
-  #   anyenv_envs: ['rbenv', 'pyenv', 'ndenv', 'goenv']
-  # - role: fish/fisherman
-  #   fisherman_plugins:
-  #     - 'z'
-  #     - 'git_util'
-  #     - 'gitignore'
-  #     - 'menu'
-  #     - 'rbenv'
-  #     - 'pyenv'
-  #     - 'oh-my-fish/plugin-direnv'
