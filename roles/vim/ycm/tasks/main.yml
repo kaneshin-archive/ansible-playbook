@@ -1,0 +1,15 @@
+---
+- name: ycm directory
+  stat: path={{ vim_ycm_dir }}
+  register: fm
+
+- name: clone ycm
+  git:  repo="{{ vim_ycm_repository_url }}" dest="{{ vim_ycm_dir }}"
+  when: not fm.stat.exists
+
+- name: install ycm
+  shell: |
+    cd {{ vim_ycm_dir }}
+    git submodule update --init --recursive
+    ./install.py --all
+

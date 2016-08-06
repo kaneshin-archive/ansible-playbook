@@ -1,3 +1,8 @@
 ---
-- name: Clone vundle
-  git: repo="{{ vim_vundle_repository_url }}" dest="{{ vim_vundle_dir }}"
+- name: vundle directory
+  stat: path={{ vim_vundle_dir }}
+  register: fm
+
+- name: clone vundle
+  git:  repo="{{ vim_vundle_repository_url }}" dest="{{ vim_vundle_dir }}"
+  when: not fm.stat.exists

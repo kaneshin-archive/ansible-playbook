@@ -12,6 +12,7 @@
     - doxygen
     - flex
     - gcc
+    - g++
     - gdb
     - gettext
     - git

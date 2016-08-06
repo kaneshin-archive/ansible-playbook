@@ -1,0 +1,3 @@
+---
+vim_ycm_repository_url: https://github.com/Valloric/YouCompleteMe
+vim_ycm_dir: ~/.vim/bundle/YouCompleteMe
