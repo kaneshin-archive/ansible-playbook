@@ -17,10 +17,9 @@
 - hosts: all
   remote_user: kaneshin
   roles:
+    - { role: z }
     - { role: rbenv, rbenv_versions: [] }
     - { role: pyenv, pyenv_versions: ['2.7.11'], pyenv_ansible_version: "2.0.1.0" }
     - { role: goenv, goenv_versions: ['1.6.3'] }
     - { role: nodenv, nodenv_versions: [] }
     - { role: dotfiles }
-    - { role: z }
-    - { role: vim/vundle }

@@ -1,11 +1,18 @@
 ---
+- name: rbenv directory
+  stat: path={{ rbenv_dir }}
+  register: fm
+
 - name: install rbenv
   git: repo="{{ rbenv_repository_url }}" dest="{{ rbenv_dir }}"
+  when: not fm.stat.exists
 
 - name: install ruby-build
   git: repo="{{ rbenv_build_repository_url }}" dest="{{ rbenv_build_dir }}"
+  when: not fm.stat.exists
 
 - template: src=profile.j2 dest={{ rbenv_profile }}
+  when: not fm.stat.exists
 
 - name: install ruby distributions
   shell: |
@@ -13,4 +20,6 @@
     ! {{ rbenv_dir }}/bin/rbenv versions | grep {{ item }} > /dev/null
     {{ rbenv_dir }}/bin/rbenv install {{ item }}
   with_items: "{{ rbenv_versions }}"
-  when: rbenv_versions | length > 0
+  when:
+    - rbenv_versions | length > 0
+    - not fm.stat.exists

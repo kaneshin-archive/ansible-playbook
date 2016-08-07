@@ -4,11 +4,18 @@
     curl -sI {{ ghq_repository_url }}/releases/latest | awk -F'/' '/^Location:/{print $NF}'
   register: ghq_version
 
+- name: ghq directory
+  stat: path=/tmp/{{ ghq_archive }}
+  register: fm
+
 - name: download ghq
   get_url: url={{ ghq_repository_url }}/releases/download/{{ ghq_version.stdout }}/{{ ghq_archive }}.zip dest=/tmp/{{ ghq_archive }}.zip
+  when: not fm.stat.exists
 
 - name: extract ghq
   command: unzip /tmp/{{ ghq_archive }}.zip -d {{ ghq_archive }} chdir=/tmp
+  when: not fm.stat.exists
 
 - name: copy ghq
   shell: mv /tmp/{{ ghq_archive }}/ghq {{ ghq_dest }} && chmod a+x {{ ghq_dest }}
+  when: not fm.stat.exists

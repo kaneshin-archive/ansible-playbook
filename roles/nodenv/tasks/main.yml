@@ -1,18 +1,28 @@
 ---
+- name: nodenv directory
+  stat: path={{ nodenv_dir }}
+  register: fm
+
 - name: clone nodenv
   git: repo="{{ nodenv_repository_url }}" dest="{{ nodenv_dir }}"
+  when: not fm.stat.exists
 
 - name: install nodenv
   shell: cd {{ nodenv_dir }} && src/configure && make -C src
+  when: not fm.stat.exists
 
 - name: install node-build
   git: repo="{{ nodenv_build_repository_url }}" dest="{{ nodenv_build_dir }}"
+  when: not fm.stat.exists
 
 - template: src=profile.j2 dest={{ nodenv_profile }}
+  when: not fm.stat.exists
 
 - name: install node distributions
   shell: |
     source {{ nodenv_profile }}
     {{ nodenv_dir }}/bin/nodenv install {{ item }}
   with_items: "{{ nodenv_versions }}"
-  when: nodenv_versions | length > 0
+  when:
+    - nodenv_versions | length > 0
+    - not fm.stat.exists

@@ -1,12 +1,20 @@
 ---
+- name: goenv directory
+  stat: path={{ goenv_dir }}
+  register: fm
+
 - name: install goenv
   git: repo="{{ goenv_repository_url }}" dest="{{ goenv_dir }}"
+  when: not fm.stat.exists
 
 - template: src=profile.j2 dest={{ goenv_profile }}
+  when: not fm.stat.exists
 
 - name: install go distributions
   shell: |
     source {{ goenv_profile }}
     {{ goenv_dir }}/bin/goenv install {{ item }}
   with_items: "{{ goenv_versions }}"
-  when: goenv_versions | length > 0
+  when:
+    - goenv_versions | length > 0
+    - not fm.stat.exists

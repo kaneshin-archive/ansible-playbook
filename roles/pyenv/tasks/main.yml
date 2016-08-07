@@ -1,12 +1,20 @@
 ---
+- name: pyenv directory
+  stat: path={{ pyenv_dir }}
+  register: fm
+
 - name: install pyenv
   git: repo="{{ pyenv_repository_url }}" dest="{{ pyenv_dir }}"
+  when: not fm.stat.exists
 
 - template: src=profile.j2 dest={{ pyenv_profile }}
+  when: not fm.stat.exists
 
 - name: install python distributions
   shell: |
     source {{ pyenv_profile }}
     {{ pyenv_dir }}/bin/pyenv install {{ item }}
   with_items: "{{ pyenv_versions }}"
-  when: pyenv_versions | length > 0
+  when:
+    - pyenv_versions | length > 0
+    - not fm.stat.exists
