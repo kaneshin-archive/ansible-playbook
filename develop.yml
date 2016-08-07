@@ -3,8 +3,8 @@
   become: yes
   become_user: root
   roles:
-    - { role: apt }
-    - { role: dev-tools }
+    - { role: pkg }
+    - { role: pkg/build-tools }
     - { role: zsh, zsh_users: [] }
     - { role: jq }
     - { role: mosh }
@@ -17,9 +17,10 @@
 - hosts: all
   remote_user: kaneshin
   roles:
+    - { role: rbenv, rbenv_versions: [] }
+    - { role: pyenv, pyenv_versions: ['2.7.11'], pyenv_ansible_version: "2.0.1.0" }
+    - { role: goenv, goenv_versions: ['1.6.3'] }
+    - { role: nodenv, nodenv_versions: [] }
     - { role: dotfiles }
     - { role: z }
-    - { role: rbenv, rbenv_versions: ['2.3.0'] }
-    - { role: pyenv, pyenv_versions: ['2.7.10'] }
-    - { role: goenv, goenv_versions: ['1.6.2'] }
-    - { role: nodenv, nodenv_versions: [] }
+    - { role: vim/vundle }

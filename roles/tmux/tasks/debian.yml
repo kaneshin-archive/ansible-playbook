@@ -1,3 +1,3 @@
 ---
-- name: Install tmux for debian
+- name: install tmux for debian
   apt: package=tmux state=present

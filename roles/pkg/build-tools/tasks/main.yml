@@ -1,0 +1,14 @@
+---
+- name: install build essentials for apt
+  apt: name={{ item }} state=present
+  with_items: "{{ pkg_build_tools_essentials }}"
+  when: ansible_os_family == 'Debian'
+  tags:
+    - build-tools
+
+- name: install build essentials for yum
+  yum: name={{ item }} state=present
+  with_items: "{{ pkg_build_tools_essentials }}"
+  when: ansible_os_family == 'RedHat'
+  tags:
+    - build-tools

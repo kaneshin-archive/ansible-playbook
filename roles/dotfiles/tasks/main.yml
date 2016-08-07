@@ -1,3 +1,12 @@
 ---
-- name: Clone dotfiles
+- name: dotfiles directory
+  stat: path={{ dotfiles_dir }}
+  register: fm
+
+- name: clone dotfiles
   git: repo="{{ dotfiles_repository_url }}" dest="{{ dotfiles_dir }}"
+  when: not fm.stat.exists
+
+- name: install dotfiles
+  shell: |
+    {{ dotfiles_dir }}/bin/dotfiles install {{ dotfiles_dir }}/bundle

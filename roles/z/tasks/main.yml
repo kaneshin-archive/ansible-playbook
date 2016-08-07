@@ -1,3 +1,8 @@
 ---
-- name: Install z
+- name: z directory
+  stat: path={{ z_dir }}
+  register: fm
+
+- name: clone z
   git: repo="{{ z_repository_url }}" dest="{{ z_dir }}"
+  when: not fm.stat.exists

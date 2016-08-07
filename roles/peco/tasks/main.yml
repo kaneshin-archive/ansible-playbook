@@ -1,14 +1,14 @@
 ---
-- name: Get peco version
+- name: get peco version
   shell: >
     curl -sI {{ peco_repository_url }}/releases/latest | awk -F'/' '/^Location:/{print $NF}'
   register: peco_version
 
-- name: Download peco
+- name: download peco
   get_url: url={{ peco_repository_url }}/releases/download/{{ peco_version.stdout }}/{{ peco_archive }}.tar.gz dest=/tmp/{{ peco_archive }}.tar.gz
 
-- name: Extract peco
+- name: extract peco
   command: tar zxvf /tmp/{{ peco_archive }}.tar.gz chdir=/tmp
 
-- name: Copy peco
+- name: copy peco
   shell: mv /tmp/{{ peco_archive }}/peco {{ peco_dest }} && chmod a+x {{ peco_dest }}

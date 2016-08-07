@@ -1,8 +1,8 @@
 ---
-- name: Get direnv version
+- name: get direnv version
   shell: >
     curl -sI {{ direnv_repository_url }}/releases/latest | awk -F'/' '/^Location:/{print $NF}'
   register: direnv_version
 
-- name: Download direnv
+- name: download direnv
   get_url: url={{ direnv_repository_url }}/releases/download/{{ direnv_version.stdout }}/direnv.linux-amd64 dest={{ direnv_dest }} mode=0755

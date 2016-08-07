@@ -1,12 +1,12 @@
 ---
-- name: Install goenv
+- name: install goenv
   git: repo="{{ goenv_repository_url }}" dest="{{ goenv_dir }}"
 
 - template: src=profile.j2 dest={{ goenv_profile }}
 
-- name: Install distributions
-  shell: >
-    source {{ goenv_profile }};
-    {{ goenv_dir }}/bin/goenv install {{ item }};
+- name: install go distributions
+  shell: |
+    source {{ goenv_profile }}
+    {{ goenv_dir }}/bin/goenv install {{ item }}
   with_items: "{{ goenv_versions }}"
   when: goenv_versions | length > 0

@@ -1,8 +1,9 @@
 ---
-- name: Install zsh
+- name: install zsh
   apt: name=zsh state=present
+  when: ansible_os_family == 'Debian'
 
-- name: Change shell to zsh
+- name: change shell to zsh
   user:
     name: "{{ item }}"
     shell: /usr/bin/zsh
