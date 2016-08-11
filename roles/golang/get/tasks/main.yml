@@ -11,6 +11,7 @@
     - github.com/kaneshin/schematic
     - github.com/nsf/gocode
     - github.com/rogpeppe/godef
+    - github.com/stretchr/testify
     - golang.org/x/tools/cmd/godoc
     - golang.org/x/tools/cmd/goimports
     - golang.org/x/tools/cmd/present
