@@ -9,6 +9,7 @@
     - github.com/golang/lint/golint
     - github.com/jteeuwen/go-bindata/...
     - github.com/kaneshin/schematic
+    - github.com/kardianos/govendor
     - github.com/nsf/gocode
     - github.com/rogpeppe/godef
     - github.com/stretchr/testify
