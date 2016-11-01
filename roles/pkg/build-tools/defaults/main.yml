@@ -24,6 +24,7 @@ pkg_build_tools_essentials:
   - libtool
   - make
   - mercurial
+  - monit
   - patch
   - patchutils
   - sqlite3
