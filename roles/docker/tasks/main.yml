@@ -1,19 +1,11 @@
 ---
 - name: purge any repositories
-  apt:
-    name: "{{ item }}"
-    purge: yes
+  apt: name={{ item }} purge=yes
   with_items:
     - 'docker.io'
 
-- name: update apt cache
-  apt:
-    update_cache: yes
-
 - name: install packages for docker
-  apt:
-    name: "{{ item }}"
-    state: present
+  apt: name={{ item }} state=present
   with_items:
     - apt-transport-https
     - ca-certificates
@@ -25,15 +17,10 @@
   apt_repository: repo='deb https://apt.dockerproject.org/repo debian-jessie main' state=present
 
 - name: update apt cache
-  apt:
-    update_cache: yes
+  apt: update_cache=yes
 
 - name: verify that APT is pulling from the right repository
   shell: apt-cache policy docker-engine
 
 - name: install docker-engine
-  apt:
-    name: docker-engine
-    state: present
-
-
+  apt: name=docker-engine state=present
