@@ -5,6 +5,7 @@
   roles:
     - { role: pkg }
     - { role: pkg/build-tools }
+    - { role: docker }
     - { role: zsh, zsh_users: [] }
     - { role: jq }
     - { role: mosh }
