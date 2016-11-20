@@ -1,0 +1,12 @@
+---
+- name: add the new GPG key.
+  shell: apt-key adv --keyserver keys.gnupg.net --recv-keys 09617FD37CC06B54
+
+- name: add an entry for your Debian operating system
+  apt_repository: repo='deb https://dist.crystal-lang.org/apt crystal main' state=present
+
+- name: update apt cache
+  apt: update_cache=yes
+
+- name: install crystal
+  apt: name=crystal state=present
