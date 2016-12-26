@@ -4,12 +4,18 @@
   become_user: root
   roles:
     - { role: pkg }
-    - { role: pkg/build-tools }
-    - { role: crystal }
-    - { role: docker }
-    - { role: zsh, zsh_users: [] }
-    - { role: jq }
+    - { role: pkg/build-essential }
+    - { role: pkg/devel-essential }
+
+- hosts: all
+  become: yes
+  become_user: root
+  roles:
     - { role: mosh }
+    - { role: zsh, zsh_users: [] }
+    - { role: docker }
+    - { role: docker/compose }
+    - { role: jq }
     - { role: tmux }
     - { role: direnv }
     - { role: ghq }
@@ -21,7 +27,7 @@
   roles:
     - { role: z }
     - { role: rbenv, rbenv_versions: [] }
-    - { role: pyenv, pyenv_versions: ['2.7.11'] }
-    - { role: goenv, goenv_versions: ['1.6.3'] }
+    - { role: pyenv, pyenv_versions: [] }
+    - { role: goenv, goenv_versions: [] }
     - { role: nodenv, nodenv_versions: [] }
     - { role: dotfiles }

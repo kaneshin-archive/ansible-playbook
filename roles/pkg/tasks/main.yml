@@ -1,15 +1,6 @@
 ---
-- name: update apt cache
+- name: retrieve new lists of packages (apt)
   apt:
     update_cache: yes
-    cache_valid_time: "{{ pkg_apt_cache_valid_time }}"
-  when: ansible_os_family == 'Debian'
-  tags:
-    - pkg
-
-- name: update yum cache
-  yum:
-    update_cache: yes
-  when: ansible_os_family == 'RedHat'
-  tags:
-    - pkg
+    cache_valid_time: "{{ pkg_cache_valid_time }}"
+  when: ansible_distribution in [ "Debian", "Ubuntu" ]

@@ -1,6 +1,9 @@
 ---
 - include: debian.yml
-  when: ansible_os_family == 'Debian'
+  when: ansible_distribution in [ "Debian", "Ubuntu" ]
+
+- include: centos.yml
+  when: ansible_distribution in [ "Fedora", "RedHat", "CentOS" ]
 
 - include: darwin.yml
   when: ansible_os_family == 'Darwin'

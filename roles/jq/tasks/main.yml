@@ -1,4 +1,6 @@
 ---
-- name: install jq
-  apt: name=jq state=present
-  when: ansible_os_family == 'Debian'
+- name: install jq package (apt)
+  apt:
+    name: jq
+    state: present
+  when: ansible_distribution in [ "Debian", "Ubuntu" ]

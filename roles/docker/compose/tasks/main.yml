@@ -1,0 +1,3 @@
+---
+- name: install docker-compose
+  get_url: url={{ docker_compose_download_url }} dest=/usr/local/bin/docker-compose force=True mode=a+x

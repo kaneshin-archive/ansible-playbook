@@ -1,4 +1,6 @@
 ---
-- name: install mosh
-  apt: name=mosh state=present
-  when: ansible_os_family == 'Debian'
+- name: install mosh client and server (apt)
+  apt:
+    name: mosh
+    state: present
+  when: ansible_distribution in [ "Debian", "Ubuntu" ]

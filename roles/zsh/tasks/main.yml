@@ -1,7 +1,11 @@
 ---
-- name: install zsh
+- name: install zsh (apt)
   apt: name=zsh state=present
-  when: ansible_os_family == 'Debian'
+  when: ansible_distribution in [ "Debian", "Ubuntu" ]
+
+- name: install zsh (yum)
+  yum: name=zsh state=present
+  when: ansible_distribution in [ "Fedora", "RedHat", "CentOS" ]
 
 - name: change shell to zsh
   user:
