@@ -13,11 +13,14 @@ pkg_build_essential_apt_packages:
   - intltool
   - libbz2-dev
   - libffi-dev
+  - liblua5.1-0
+  - liblua5.1-0-dev
   - libncurses5-dev
   - libreadline-dev
   - libsqlite3-dev
   - libssl-dev
   - libtool
+  - lua5.1
   - make
   - patchutils
   - zlib1g-dev
