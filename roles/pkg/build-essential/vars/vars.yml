@@ -23,6 +23,7 @@ pkg_build_essential_apt_packages:
   - lua5.1
   - make
   - patchutils
+  - tk-dev
   - zlib1g-dev
 
 pkg_build_essential_yum_packages:
