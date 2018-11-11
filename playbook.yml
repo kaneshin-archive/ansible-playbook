@@ -20,7 +20,6 @@
     - { role: direnv }
     - { role: ghq }
     - { role: peco }
-    - { role: glide }
 
 - hosts: all
   remote_user: kaneshin
