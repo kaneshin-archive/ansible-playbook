@@ -2,5 +2,12 @@
 - hosts: 127.0.0.1
   connection: local
   roles:
+    - { role: rbenv, rbenv_versions: [] }
+    - { role: pyenv, pyenv_versions: [] }
+    - { role: goenv, goenv_versions: [] }
+    - { role: nodenv, nodenv_versions: [] }
+    - { role: dotfiles }
     - { role: vim/vundle }
-    - { role: golang/get }
+    - { role: direnv }
+    - { role: ghq }
+    - { role: peco }

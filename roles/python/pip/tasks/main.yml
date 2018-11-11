@@ -1,0 +1,6 @@
+---
+- name: install commands by pip
+  shell: pip install {{ item }}
+  with_items:
+    - ansible
+    - awscli

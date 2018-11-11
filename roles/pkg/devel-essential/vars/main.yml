@@ -7,6 +7,7 @@ pkg_devel_essential_apt_packages:
   - subversion
   - tree
   - unzip
+  - python-pip
 
 pkg_devel_essential_yum_packages:
   - gcc
@@ -16,4 +17,5 @@ pkg_devel_essential_yum_packages:
   - subversion
   - tree
   - unzip
+  - python-pip
 

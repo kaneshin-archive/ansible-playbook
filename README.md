@@ -4,7 +4,7 @@
 
 ## Support
 
-- Debian 8
+- Debian 8+
 
 ## Play!!
 

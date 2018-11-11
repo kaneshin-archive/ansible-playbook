@@ -12,21 +12,10 @@
   become_user: root
   roles:
     - { role: mosh }
-    - { role: zsh, zsh_users: [] }
     - { role: docker }
     - { role: docker/compose }
+    - { role: zsh, zsh_users: [] }
+    - { role: python/pip }
     - { role: jq }
     - { role: tmux }
-    - { role: direnv }
-    - { role: ghq }
-    - { role: peco }
 
-- hosts: all
-  remote_user: kaneshin
-  roles:
-    - { role: z }
-    - { role: rbenv, rbenv_versions: [] }
-    - { role: pyenv, pyenv_versions: [] }
-    - { role: goenv, goenv_versions: [] }
-    - { role: nodenv, nodenv_versions: [] }
-    - { role: dotfiles }
