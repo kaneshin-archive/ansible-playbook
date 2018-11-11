@@ -2,6 +2,7 @@
 - hosts: 127.0.0.1
   connection: local
   roles:
+    - { role: local }
     - { role: rbenv, rbenv_versions: [] }
     - { role: pyenv, pyenv_versions: [] }
     - { role: goenv, goenv_versions: [] }

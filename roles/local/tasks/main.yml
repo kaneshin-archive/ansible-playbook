@@ -1,0 +1,9 @@
+---
+- name: local
+  stat: path={{ item }}
+  with_items:
+    - ~/local
+    - ~/local/bin
+    - ~/local/src
+    - ~/local/pkg
+    - ~/local/sdk
