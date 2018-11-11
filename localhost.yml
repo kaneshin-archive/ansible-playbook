@@ -7,7 +7,7 @@
     - { role: pyenv, pyenv_versions: [] }
     - { role: goenv, goenv_versions: [] }
     - { role: nodenv, nodenv_versions: [] }
-    - { role: vim/vundle, dotfiles_dir: ~/local/src/github.com/kaneshin/dotfiles }
+    - { role: vim/vundle }
     - { role: direnv, direnv_dest: ~/local/bin/direnv }
     - { role: ghq, ghq_dest: ~/local/bin/ghq }
     - { role: peco, peco_dest: ~/local/bin/peco }
@@ -15,4 +15,4 @@
 - hosts: 127.0.0.1
   connection: local
   roles:
-    - { role: dotfiles }
+    - { role: dotfiles, dotfiles_dir: ~/local/src/github.com/kaneshin/dotfiles }
