@@ -1,6 +1,6 @@
 ---
 - name: local
-  stat: path={{ item }}
+  file: path={{ item }} state=directory
   with_items:
     - ~/local
     - ~/local/bin
