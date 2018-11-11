@@ -1,0 +1,19 @@
+---
+pkg_devel_essential_apt_packages:
+  - gcc
+  - git
+  - mercurial
+  - patch
+  - subversion
+  - tree
+  - unzip
+
+pkg_devel_essential_yum_packages:
+  - gcc
+  - git
+  - mercurial
+  - patch
+  - subversion
+  - tree
+  - unzip
+
