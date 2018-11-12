@@ -1,0 +1,16 @@
+---
+- name: packer directory
+  stat: path=/tmp/{{ packer_archive }}
+  register: fm
+
+- name: download packer
+  get_url: url={{ packer_download_url }}/{{ packer_version }}/packer_{{ packer_version }}_{{ packer_arch }}.zip dest=/tmp/{{ packer_archive }}.zip
+  when: not fm.stat.exists
+
+- name: extract packer
+  command: unzip /tmp/{{ packer_archive }}.zip -d {{ packer_archive }} chdir=/tmp
+  when: not fm.stat.exists
+
+- name: copy packer
+  shell: mv /tmp/{{ packer_archive }}/packer {{ packer_dest }} && chmod a+x {{ packer_dest }}
+  when: not fm.stat.exists
